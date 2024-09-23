@@ -37,7 +37,7 @@ $STD sh <(curl -sSL https://get.docker.com)
 
 read -r -p "Would you like to add Portainer? <y/N> " prompt
 if [[ ${prompt,,} =~ ^(y|yes)$ ]]; then
-  msg_info "Installing Portainer $PORTAINER_LATEST_VERSION"
+#  msg_info "Installing Portainer $PORTAINER_LATEST_VERSION"
   docker volume create portainer_data >/dev/null
   $STD docker run -d \
     -p 8000:8000 \
@@ -51,7 +51,7 @@ if [[ ${prompt,,} =~ ^(y|yes)$ ]]; then
 else
   read -r -p "Would you like to add the Portainer Agent? <y/N> " prompt
   if [[ ${prompt,,} =~ ^(y|yes)$ ]]; then
-    msg_info "Installing Portainer agent $PORTAINER_AGENT_LATEST_VERSION"
+#    msg_info "Installing Portainer agent $PORTAINER_AGENT_LATEST_VERSION"
     $STD docker run -d \
       -p 9001:9001 \
       --name portainer_agent \
